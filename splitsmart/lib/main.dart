@@ -26,6 +26,7 @@ class SplitSmartApp extends StatelessWidget {
         ),
         fontFamily: 'SF Pro Display',
       ),
+      
       home: const HomeScreen(),
     );
   }
