@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import '../utils/constants.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,13 +11,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   final TextEditingController _amountController = TextEditingController();
   final TextEditingController _peopleController = TextEditingController();
-  
+
   double _totalAmount = 0.0;
   int _numberOfPeople = 1;
   double _tipPercentage = 0.0;
   double _perPersonAmount = 0.0;
   bool _showResult = false;
-  
+
   late AnimationController _pulseController;
   late Animation<double> _pulseAnimation;
 
@@ -29,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       duration: const Duration(milliseconds: 3000),
       vsync: this,
     )..repeat(reverse: true);
-    
+
     _pulseAnimation = Tween<double>(begin: 1.0, end: 1.05).animate(
       CurvedAnimation(parent: _pulseController, curve: Curves.easeInOut),
     );
@@ -49,11 +48,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     setState(() {
       _totalAmount = double.tryParse(_amountController.text) ?? 0.0;
       _numberOfPeople = int.tryParse(_peopleController.text) ?? 1;
-      
+
       if (_numberOfPeople > 0 && _totalAmount > 0) {
         // TODO: BEGINNER ISSUE #2 - Round off to 2 decimal places
         // Current calculation doesn't round properly
-        double totalWithTip = _totalAmount + (_totalAmount * _tipPercentage / 100);
+        double totalWithTip =
+            _totalAmount + (_totalAmount * _tipPercentage / 100);
         _perPersonAmount = totalWithTip / _numberOfPeople;
         _showResult = true;
       }
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
     // TODO: INTERMEDIATE ISSUE #6 - Add camera functionality
     // Use image_picker to open camera
-    
+
     // TODO: ADVANCED ISSUE #12 - Parse receipt intelligently
     // Extract total, tax, items from scanned image
   }
@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         'Total: ₹${_totalAmount.toStringAsFixed(2)}\n'
         'People: $_numberOfPeople\n'
         'Per Person: ₹${_perPersonAmount.toStringAsFixed(2)}';
-    
+
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: const Text('💬 WhatsApp share feature coming soon!'),
@@ -134,7 +134,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ShaderMask(
-          shaderCallback: (bounds) => AppColors.primaryGradient.createShader(bounds),
+          shaderCallback: (bounds) =>
+              AppColors.primaryGradient.createShader(bounds),
           child: const Text(
             '💰 SplitSmart',
             style: AppTextStyles.headline1,
@@ -294,7 +295,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(AppRadius.md),
-              borderSide: const BorderSide(color: AppColors.primaryPurple, width: 2),
+              borderSide:
+                  const BorderSide(color: AppColors.primaryPurple, width: 2),
             ),
           ),
         ),
@@ -450,7 +452,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        _buildResultDetail('Total', '₹${_totalAmount.toStringAsFixed(2)}'),
+                        _buildResultDetail(
+                            'Total', '₹${_totalAmount.toStringAsFixed(2)}'),
                         Container(width: 1, height: 30, color: Colors.white30),
                         _buildResultDetail('People', '$_numberOfPeople'),
                         Container(width: 1, height: 30, color: Colors.white30),
@@ -507,6 +510,3 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     );
   }
 }
-
-
-
