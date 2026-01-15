@@ -1,0 +1,59 @@
+{
+  "questions": [
+    {
+      "question": "Reconstruct the Timeline",
+      "type": "order",
+      "options": [
+        "Transaction T1 locks Row A",
+        "Transaction T2 locks Row B",
+        "Transaction T1 requests Row B",
+        "Transaction T2 requests Row A"
+      ],
+      "correctAnswer": [0, 1, 2, 3]
+    },
+    {
+      "question": "Necessary Conditions Check",
+      "type": "multi-select",
+      "options": [
+        "Mutual Exclusion",
+        "Hold and Wait",
+        "Circular Wait",
+        "Infinite resources"
+      ],
+      "correctAnswer": [0, 1, 2]
+    },
+    {
+      "question": "Find the False Clue",
+      "type": "single-select",
+      "options": [
+        "Transactions hold locks",
+        "Circular dependency exists",
+        "Locks can be forcibly taken",
+        "Transactions wait indefinitely"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Blame the Design Decision",
+      "type": "single-select",
+      "options": [
+        "Inconsistent lock ordering",
+        "Large database size",
+        "High query throughput",
+        "Low disk space"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Prevent the Next Crime",
+      "type": "multi-select",
+      "options": [
+        "Enforce lock ordering",
+        "Deadlock detection and rollback",
+        "Increase transaction count",
+        "Use shorter transactions"
+      ],
+      "correctAnswer": [0, 1, 3]
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "questions": [
+    {
+      "question": "Reconstruct the Timeline",
+      "type": "order",
+      "options": [
+        "High-priority threads keep acquiring CPU",
+        "Low-priority thread becomes ready",
+        "Scheduler always selects high-priority threads",
+        "Low-priority thread waits indefinitely"
+      ],
+      "correctAnswer": [0, 1, 2, 3]
+    },
+    {
+      "question": "Necessary Conditions Check",
+      "type": "multi-select",
+      "options": [
+        "Unfair scheduling",
+        "Resource monopolization",
+        "Circular wait",
+        "Priority imbalance"
+      ],
+      "correctAnswer": [0, 1, 3]
+    },
+    {
+      "question": "Find the False Clue",
+      "type": "single-select",
+      "options": [
+        "Some threads never get CPU time",
+        "System continues to make progress",
+        "Circular dependency exists",
+        "Low-priority threads are postponed"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Blame the Design Decision",
+      "type": "single-select",
+      "options": [
+        "Strict priority scheduling without aging",
+        "Too many processes",
+        "Low memory availability",
+        "High context-switch cost"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Prevent the Next Crime",
+      "type": "multi-select",
+      "options": [
+        "Priority aging",
+        "Fair scheduling algorithms",
+        "Increase priority gap",
+        "Time slicing"
+      ],
+      "correctAnswer": [0, 1, 3]
+    }
+  ]
+}

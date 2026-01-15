@@ -1,0 +1,59 @@
+{
+  "questions": [
+    {
+      "question": "Reconstruct the Timeline",
+      "type": "order",
+      "options": [
+        "Thread A reads shared variable X",
+        "Thread B reads shared variable X",
+        "Thread A writes updated value to X",
+        "Thread B writes updated value to X"
+      ],
+      "correctAnswer": [0, 1, 2, 3]
+    },
+    {
+      "question": "Necessary Conditions Check",
+      "type": "multi-select",
+      "options": [
+        "Shared mutable state",
+        "Concurrent execution",
+        "Lack of synchronization",
+        "Circular wait"
+      ],
+      "correctAnswer": [0, 1, 2]
+    },
+    {
+      "question": "Find the False Clue",
+      "type": "single-select",
+      "options": [
+        "Multiple threads access shared data",
+        "Operations interleave unpredictably",
+        "Only one thread can execute at a time",
+        "Final result depends on timing"
+      ],
+      "correctAnswer": 2
+    },
+    {
+      "question": "Blame the Design Decision",
+      "type": "single-select",
+      "options": [
+        "No mutual exclusion on shared variable",
+        "Too many CPU cores",
+        "High memory usage",
+        "Low thread priority"
+      ],
+      "correctAnswer": 0
+    },
+    {
+      "question": "Prevent the Next Crime",
+      "type": "multi-select",
+      "options": [
+        "Use locks or mutexes",
+        "Atomic operations",
+        "Increase thread count",
+        "Remove shared state"
+      ],
+      "correctAnswer": [0, 1, 3]
+    }
+  ]
+}

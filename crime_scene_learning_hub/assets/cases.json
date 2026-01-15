@@ -1,0 +1,84 @@
+[
+  {
+    "id": "1",
+    "title": "Deadlock in Multi-threading",
+    "coverImage": "assets/images/deadlock_multithreading.png",
+    "suspects": ["Thread A", "Thread B", "Thread C"],
+    "description": "A system freeze occurred when multiple threads attempted to acquire shared resources at the same time.",
+    "verdict": "Deadlock detected due to circular wait, mutual exclusion, and no preemption.",
+    "category": "Operating Systems",
+    "evidence": [
+      {
+        "label": "Clue 1",
+        "title": "Multiple threads requested locks",
+        "description": "Each thread acquired one resource and waited for another.",
+        "icon": "lock"
+      },
+      {
+        "label": "Clue 2",
+        "title": "Circular wait detected",
+        "description": "Thread A waited for Thread B, while Thread B waited for Thread A.",
+        "icon": "sync_problem"
+      },
+      {
+        "label": "Clue 3",
+        "title": "No preemption policy",
+        "description": "Resources could not be forcibly taken from threads.",
+        "icon": "block"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Race Condition in Banking App",
+    "coverImage": "assets/images/race_condition.png",
+    "suspects": ["Transaction A", "Transaction B"],
+    "description": "Simultaneous transactions caused inconsistent account balances.",
+    "verdict": "Race condition occurred due to unsynchronized access to shared data.",
+    "category": "Operating Systems",
+    "evidence": [
+      {
+        "label": "Clue 1",
+        "title": "Simultaneous access",
+        "description": "Two transactions accessed the same account at the same time.",
+        "icon": "sync_problem"
+      },
+      {
+        "label": "Clue 2",
+        "title": "Incorrect balance",
+        "description": "The account balance did not reflect the correct total after transactions.",
+        "icon": "block"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "title": "Deadlock in Database Transactions",
+    "coverImage": "assets/images/deadlock_db.png",
+    "suspects": ["Transaction X", "Transaction Y"],
+    "description": "Two database transactions locked resources in a conflicting order, causing a complete halt.",
+    "verdict": "Deadlock occurred due to circular waiting and lack of proper transaction ordering.",
+    "category": "Databases",
+    "evidence": [
+      {
+        "label": "Clue 1",
+        "title": "Transaction locks",
+        "description": "Transaction X locked table A and waited for table B, while Transaction Y locked table B and waited for table A.",
+        "icon": "lock"
+      },
+      {
+        "label": "Clue 2",
+        "title": "Deadlock detection",
+        "description": "Database detected a cycle in the wait-for graph.",
+        "icon": "sync_problem"
+      },
+      {
+        "label": "Clue 3",
+        "title": "Rollback",
+        "description": "One transaction was rolled back to resolve the deadlock.",
+        "icon": "block"
+      }
+    ]
+  }
+]
+
