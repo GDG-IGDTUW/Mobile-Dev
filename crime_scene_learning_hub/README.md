@@ -3,7 +3,7 @@
 Crime Scene Learning Hub is an open-source Flutter application that helps users learn **complex technical and system concepts** through a **crime investigation metaphor**.  
 Instead of traditional explanations, each topic is presented as a **case** with suspects, evidence, and a final verdict—making learning more engaging, intuitive, and memorable.
 
-Project Maintainer: **[Yashvi Gupta](https://github.com/YashviGupta191105)**
+**Project Maintainer:** **[Yashvi Gupta](https://github.com/YashviGupta191105)**
 
 ---
 
@@ -52,9 +52,9 @@ This section focuses on **testing understanding**.
 ### 3. Profile Section 👤
 
 The profile section allows users to:
-- View their activity and progress
-- Track cases explored and solved
-- General FAQ's about the app
+- View their activity and progress  
+- Track cases explored and solved  
+- Access general FAQs about the app  
 
 ---
 
@@ -65,6 +65,23 @@ The profile section allows users to:
 - Interactive quizzes to test conceptual understanding  
 - Clean and beginner-friendly UI built with Flutter  
 - Category-based case filtering  
+
+---
+
+## Open Issues & Roadmap
+
+The project is under active development, and the following improvements are planned. Contributors are welcome to work on any of these:
+
+- 📚 Expanding and updating the local case database (JSON-based)
+- 🧾 Adding detailed explanations and example code to suspect and evidence cards
+- 📊 Local progress tracking (cases solved, evidence reviewed, completion percentage)
+- 🏷️ Difficulty labels for cases (Easy / Medium / Hard)
+- 🧠 Enhancements to the solve-a-case flow (answer explanations, partial marking)
+- 🎨 UI/UX improvements across all screens
+- 👤 Profile section enhancements with locally stored user stats
+- 🏆 Case completion recognition (badges or certificates)
+
+👉 Detailed tasks and contribution instructions are available in the **Issues** tab.
 
 ---
 
@@ -84,7 +101,9 @@ You can help by:
 - Fixing bugs  
 - Enhancing quizzes and explanations  
 
-Detailed contribution steps will be added in the issues section.
+Please refer to the **Issues** section for detailed contribution tasks.
 
 ---
+
+
 
