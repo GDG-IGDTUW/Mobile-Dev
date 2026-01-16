@@ -92,18 +92,41 @@ The project is under active development, and the following improvements are plan
 
 ---
 
-## 🤝 Contributing
+##  How to Run the Project
 
-Contributions are welcome!  
-You can help by:
-- Adding new case files  
-- Improving UI/UX  
-- Fixing bugs  
-- Enhancing quizzes and explanations  
+Follow the steps below to run the app locally.
 
-Please refer to the **Issues** section for detailed contribution tasks.
+### Prerequisites
+- Flutter SDK installed
+- Android Studio or VS Code
+- Emulator / physical device / web browser
 
 ---
+
+### Steps to Run
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/GDG-IGDTUW/Mobile-Dev.git
+cd crime_scene_learning_hub
+ ```
+
+2. **Get dependencies**
+```bash
+flutter pub get
+ ```
+
+3. **Run the app**
+```bash
+flutter run
+ ```
+If flutter run does not work or no device is detected, try running the app on web:
+```bash
+flutter run
+flutter run -d web-server
+ ```
+---
+
 
 
 
