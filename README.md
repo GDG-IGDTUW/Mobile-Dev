@@ -9,7 +9,7 @@ This repository is ideal for developers who want to explore, learn, and contribu
 ## Project Maintainers
 - **[Yashvi Gupta](https://github.com/YashviGupta191105)** – GDG Mobile Dev Circle Manager  
 - **[Riya Jain](https://github.com/riyajain137)** – GDG Mobile Dev Mentor  
-- **[Mehar Kapoor]** – GDG Mobile Dev Mentor
+- **[Mehar Kapoor](https://github.com/meharkp7)** – GDG Mobile Dev Mentor
 
 ---
 
