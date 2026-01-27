@@ -45,20 +45,55 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
   // TODO: BEGINNER ISSUE #1 - Add tip calculation (5%, 10%, 15%)
   // Currently hardcoded to 0%, need to add tip buttons
   void _calculateSplit() {
+    final amountText = _amountController.text.trim();
+    final peopleText = _peopleController.text.trim();
+    
+    // Check for empty fields
+    if (amountText.isEmpty || peopleText.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please fill in all fields'),
+        ),
+      );
+      return;
+    }
+    
+    final double? amount = double.tryParse(amountText);
+    final int? people = int.tryParse(peopleText);
+    
+    // Check for invalid numbers
+    if (amount == null || people == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter only valid numeric values'),
+        ),
+      );
+      return;
+    }
+    
+    // Check for zero or negative values
+    if (amount <= 0 || people <= 0) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Amount and number of people must be greater than zero'),
+        ),
+      );
+      return;
+    }
+    
+    // Safe to calculate
     setState(() {
-      _totalAmount = double.tryParse(_amountController.text) ?? 0.0;
-      _numberOfPeople = int.tryParse(_peopleController.text) ?? 1;
-
-      if (_numberOfPeople > 0 && _totalAmount > 0) {
-        // TODO: BEGINNER ISSUE #2 - Round off to 2 decimal places
-        // Current calculation doesn't round properly
-        double totalWithTip =
-            _totalAmount + (_totalAmount * _tipPercentage / 100);
-        _perPersonAmount = totalWithTip / _numberOfPeople;
-        _showResult = true;
-      }
+      _totalAmount = amount;
+      _numberOfPeople = people;
+      
+      double totalWithTip =
+        _totalAmount + (_totalAmount * _tipPercentage / 100);
+      
+      _perPersonAmount = totalWithTip / _numberOfPeople;
+      _showResult = true;
     });
   }
+
 
   // TODO: ADVANCED ISSUE #11 - Integrate ML Kit for text recognition
   // This function should open camera and extract bill amount
