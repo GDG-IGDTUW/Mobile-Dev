@@ -83,8 +83,8 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     
     // Safe to calculate
     setState(() {
-      _totalAmount = amount;
-      _numberOfPeople = people;
+      _totalAmount = amount ?? 0.0;
+      _numberOfPeople = people ?? 1;
       
       double totalWithTip =
         _totalAmount + (_totalAmount * _tipPercentage / 100);
