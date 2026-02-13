@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import '../models/character.dart';
 import '../widgets/animated_character.dart';
 import 'summary.dart';
+import '../services/story_storage_service.dart';
+
 
 class StoryScreen extends StatefulWidget {
   final Character character;
@@ -14,7 +16,11 @@ class StoryScreen extends StatefulWidget {
 
 class _StoryScreenState extends State<StoryScreen> {
   int step = 0;
+
+  final StoryStorageService _storageService = StoryStorageService();
+
   final responses = List.generate(4, (_) => '');
+
 
   final prompts = const [
     {
