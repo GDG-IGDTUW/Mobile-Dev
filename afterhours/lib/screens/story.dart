@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/character.dart';
 import '../widgets/animated_character.dart';
 import 'summary.dart';
+import '../services/story_storage_service.dart';
 
 class StoryScreen extends StatefulWidget {
   final Character character;
@@ -14,6 +15,9 @@ class StoryScreen extends StatefulWidget {
 
 class _StoryScreenState extends State<StoryScreen> {
   int step = 0;
+
+  final StoryStorageService _storageService = StoryStorageService();
+
   final responses = List.generate(4, (_) => '');
 
   final prompts = const [
@@ -38,6 +42,21 @@ class _StoryScreenState extends State<StoryScreen> {
       'icon': Icons.auto_stories,
     },
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    _restoreProgress();
+  }
+
+  Future<void> _restoreProgress() async {
+    final restoredStep = await _storageService.restoreLastCompletedAct();
+    if (restoredStep < prompts.length) {
+      setState(() {
+        step = restoredStep;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -127,8 +146,14 @@ class _StoryScreenState extends State<StoryScreen> {
                     child: TextButton(
                       onPressed: () {
                         if (step < prompts.length - 1) {
-                          setState(() => step++);
+                          setState(() {
+                            step++;
+                          });
+
+                          _storageService.saveLastCompletedAct(step);
                         } else {
+                          _storageService.saveLastCompletedAct(step);
+
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -153,7 +178,6 @@ class _StoryScreenState extends State<StoryScreen> {
               ),
             ),
 
-            // 🔥 Animated character overlay
             Positioned(
               bottom: 24,
               right: 16,
