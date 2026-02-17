@@ -142,6 +142,24 @@ class _AllCasesPageState extends State<AllCasesPage> {
                                       color: Colors.grey.shade700,
                                     ),
                                   ),
+                                  const SizedBox(width: 8),
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                    decoration: BoxDecoration(
+                                      color: crimeCase.difficulty == "Easy" ? Colors.green
+                                          : crimeCase.difficulty == "Medium" ? Colors.orange
+                                          : Colors.red,
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: Text(
+                                      crimeCase.difficulty,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
