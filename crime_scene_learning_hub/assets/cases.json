@@ -7,6 +7,7 @@
     "description": "A system freeze occurred when multiple threads attempted to acquire shared resources at the same time.",
     "verdict": "Deadlock detected due to circular wait, mutual exclusion, and no preemption.",
     "category": "Operating Systems",
+    "difficulty": "Medium",
     "evidence": [
       {
         "label": "Clue 1",
@@ -36,6 +37,7 @@
     "description": "Simultaneous transactions caused inconsistent account balances.",
     "verdict": "Race condition occurred due to unsynchronized access to shared data.",
     "category": "Operating Systems",
+    "difficulty": "Hard",
     "evidence": [
       {
         "label": "Clue 1",
@@ -59,6 +61,7 @@
     "description": "Two database transactions locked resources in a conflicting order, causing a complete halt.",
     "verdict": "Deadlock occurred due to circular waiting and lack of proper transaction ordering.",
     "category": "Databases",
+    "difficulty": "Medium",
     "evidence": [
       {
         "label": "Clue 1",

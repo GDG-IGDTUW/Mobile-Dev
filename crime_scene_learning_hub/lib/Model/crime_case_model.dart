@@ -8,7 +8,8 @@ class CrimeCase {
   final String description;
   final String verdict;
   final List<EvidenceItem> evidence;
-  final String category; 
+  final String category;
+  final String difficulty;
 
   CrimeCase({
     required this.id,
@@ -18,7 +19,8 @@ class CrimeCase {
     required this.description,
     required this.verdict,
     required this.evidence,
-    required this.category, 
+    required this.category,
+    required this.difficulty,
   });
 
   factory CrimeCase.fromJson(Map<String, dynamic> json) {
@@ -38,6 +40,7 @@ class CrimeCase {
       verdict: json['verdict'] ?? '',
       evidence: evidenceList,
       category: json['category'] ?? 'Uncategorized', // default value
+      difficulty: json['difficulty'] ?? 'Medium',
     );
   }
 }
