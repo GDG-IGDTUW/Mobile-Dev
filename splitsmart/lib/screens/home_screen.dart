@@ -60,6 +60,18 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
     });
   }
 
+  void _clearAll() {
+    setState(() {
+      _amountController.clear();
+      _peopleController.clear();
+      _totalAmount = 0.0;
+      _numberOfPeople = 1;
+      _tipPercentage = 0.0;
+      _perPersonAmount = 0.0;
+      _showResult = false;
+    });
+  }
+
   // TODO: ADVANCED ISSUE #11 - Integrate ML Kit for text recognition
   // This function should open camera and extract bill amount
   void _scanBill() {
@@ -117,6 +129,28 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 _buildTipSection(),
                 const SizedBox(height: AppSpacing.lg),
                 _buildCalculateButton(),
+                const SizedBox(height: AppSpacing.md),
+                
+                // Clear All Button
+                OutlinedButton(
+                  onPressed: _clearAll,
+                  style: OutlinedButton.styleFrom(
+                    minimumSize: const Size(double.infinity, 50),
+                    side: const BorderSide(color: AppColors.primaryPurple, width: 2),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(AppRadius.md),
+                    ),
+                  ),
+                  child: const Text(
+                    'Clear All',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primaryPurple,
+                    ),
+                  ),
+                ),
+                
                 if (_showResult) ...[
                   const SizedBox(height: AppSpacing.xl),
                   _buildResultCard(),
