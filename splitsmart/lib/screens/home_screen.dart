@@ -86,10 +86,14 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       _totalAmount = amount ?? 0.0;
       _numberOfPeople = people ?? 1;
       
-      double totalWithTip =
-        _totalAmount + (_totalAmount * _tipPercentage / 100);
+      double totalWithTip = _totalAmount + (_totalAmount * _tipPercentage / 100);
       
-      _perPersonAmount = totalWithTip / _numberOfPeople;
+      // Calculate per person
+      double perPerson = totalWithTip / _numberOfPeople;
+      
+      // Round to exactly 2 decimal places
+      _perPersonAmount = double.parse(perPerson.toStringAsFixed(2));
+      
       _showResult = true;
     });
   }
